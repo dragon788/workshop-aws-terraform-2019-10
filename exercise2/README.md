@@ -2,9 +2,6 @@
 
 In this exercise, we will use `exercise1` resources to do some inspection and see how IAM works.
 
-We will also see how you can separate terraform resources by using data sources.
-
-
 _NOTE_: everything in this exercise should be run from the ec2 host provided to you.
 
 ## Steps
@@ -17,6 +14,8 @@ cd exercise2
 
 ```
 aws s3api list-buckets
+# Same thing, more human-readable, less machine readable
+aws s3 ls
 ```
 
 Because we are all using the same AWS Organization, region and permissions, you should be able to see
@@ -53,3 +52,13 @@ terraform apply
 This will prompt you a bucket name. Grab one of the names from the `list-buckets` command earlier (not yours!).
 
 Terraform will now grab the index file from their bucket and show you their content!
+
+Just for fun, try a destroy in this exercise2 folder.
+
+```
+terraform destroy
+```
+
+This will prompt you a bucket name. Grab one of the names from the `list-buckets` command earlier (not yours!).
+
+What happened, and why?
